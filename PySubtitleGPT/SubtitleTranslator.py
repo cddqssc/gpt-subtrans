@@ -34,6 +34,8 @@ class SubtitleTranslator:
         
         if options.api_base():
             openai.api_base = options.api_base()
+            openai.api_type = "azure"
+            openai.api_version = "2023-06-01-preview"
         
         logging.debug(f"Using API Key: {openai.api_key}, Using API Base: {openai.api_base}")
 
@@ -60,7 +62,7 @@ class SubtitleTranslator:
         """
         try:
             if api_base:
-                response = openai.Model.list(api_key, api_base = api_base) if api_key else None
+                response = openai.Model.list(api_key, api_base = api_base, api_type="azure", api_version="2023-06-01-preview") if api_key else None
             else:
                 response = openai.Model.list(api_key) if api_key else None 
             if not response or not response.data:

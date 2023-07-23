@@ -98,7 +98,7 @@ class ChatGPTClient:
         while retries <= max_retries:
             try:
                 response = openai.ChatCompletion.create(
-                    model=model,
+                    engine=model,
                     messages=messages,
                     temperature=temperature
                 )

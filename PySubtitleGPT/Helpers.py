@@ -93,8 +93,8 @@ def GetOutputPath(filepath):
 
     if basename.endswith("-ChatGPT"):
         basename = basename[0:basename.index("-ChatGPT")]
-    if not basename.endswith("-GPT"):
-        basename = basename + "-GPT"
+    # if not basename.endswith("-GPT"):
+    #     basename = basename + "-GPT"
     return os.path.join(os.path.dirname(filepath), f"{basename}.srt")
 
 def GenerateTagLines(context, tags):
